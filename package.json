@@ -1,0 +1,25 @@
+{
+  "name": "cdnloader",
+  "version": "1.0.0",
+  "description": "a loader to auto change file path to cdnServerPath",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaqiinono/cdnLoader.git"
+  },
+  "keywords": [
+    "cdnLoader"
+  ],
+  "author": "songmeinuo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaqiinono/cdnLoader/issues"
+  },
+  "homepage": "https://github.com/kaqiinono/cdnLoader#readme",
+  "devDependencies": {
+    "loader-utils": "^2.0.0"
+  }
+}
