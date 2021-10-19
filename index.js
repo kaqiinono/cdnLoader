@@ -18,7 +18,7 @@ const replaceCDN = (str) => {
   const originFile = this.context;
   const { cdnServerPath, assetsPath, uploadFile } = getOptions(this);
 
-  console.log('=========》');
+  console.log('============》');
   console.log(getOptions(this));
   console.log('originFile', originFile);
 
