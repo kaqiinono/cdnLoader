@@ -18,10 +18,6 @@ function replaceCDN(str){
   const originFile = this.resourcePath;
   const { cdnServerPath, assetsPath, uploadFile } = getOptions(this);
 
-  console.log('============》');
-  console.log(getOptions(this));
-  console.log('originFile', originFile);
-
   if (match && match.length) {
     for(let m of match) {
       const as = m
