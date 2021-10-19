@@ -12,10 +12,10 @@ function replaceSourceFile(originFile, from, to) {
   fs.writeFileSync(originFile, writeData);
 }
 
-const replaceCDN = (str) => {
+function replaceCDN(str){
   const MATCH_REG = /url\((?!"?'?http).*?\/assets\/.*?\)/g;
   const match = str.match(MATCH_REG);
-  const originFile = this.context;
+  const originFile = this.resourcePath;
   const { cdnServerPath, assetsPath, uploadFile } = getOptions(this);
 
   console.log('============》');
