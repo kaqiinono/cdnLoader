@@ -12,22 +12,23 @@ function replaceSourceFile(originFile, from, to) {
   fs.writeFileSync(originFile, writeData);
 }
 
-function replaceCDN(str){
+function replaceCDN(str) {
   const MATCH_REG = /url\((?!"?'?http).*?\/assets\/.*?\)/g;
   const match = str.match(MATCH_REG);
   const originFile = this.resourcePath;
   const { cdnServerPath, assetsPath, uploadFile } = getOptions(this);
 
   if (match && match.length) {
-    for(let m of match) {
+    for (let m of match) {
       const as = m
         ?.match(/assets\/.*?\)/)[0]
         ?.replace(`'`, '')
         ?.replace(`"`, '')
         .slice(0, -1);
-      const finalUrl = `url('${cdnServerPath}/${as}')`;
-      uploadFile(path.join(assetsPath, as), null);
-      replaceSourceFile(originFile, m, finalUrl);
+      uploadFile(path.join(assetsPath, as), null).then(relativePath => {
+        const finalUrl = `url('${cdnServerPath && cdnServerPath.endsWith('/') ? '' : '/'}${relativePath}')`;
+        replaceSourceFile(originFile, m, finalUrl);
+      });
     }
     return fs.readFileSync(originFile).toString();
   }
