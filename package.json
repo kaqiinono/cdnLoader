@@ -1,6 +1,6 @@
 {
   "name": "cdn-change-loader",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "a loader to auto change file path to cdnServerPath",
   "main": "index.js",
   "scripts": {
