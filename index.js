@@ -26,7 +26,7 @@ function replaceCDN(str) {
         ?.replace(`"`, '')
         .slice(0, -1);
       uploadFile(path.join(assetsPath, as), null).then(relativePath => {
-        const finalUrl = `url('${cdnServerPath && cdnServerPath.endsWith('/') ? '' : '/'}${relativePath}')`;
+        const finalUrl = `url('${cdnServerPath && cdnServerPath.endsWith('/') ? cdnServerPath : `${cdnServerPath}/`}${relativePath}')`;
         replaceSourceFile(originFile, m, finalUrl);
       });
     }
